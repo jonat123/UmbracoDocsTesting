@@ -19,7 +19,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install openai==1.52.0
+        run:  pip install openai==0.28.1
 
       - name: Run Umboto rewrite
         env:
