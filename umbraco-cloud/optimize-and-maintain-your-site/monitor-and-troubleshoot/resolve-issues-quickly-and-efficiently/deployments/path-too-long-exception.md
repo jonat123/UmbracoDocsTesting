@@ -67,4 +67,4 @@ In order to fix this error, you will need to connect to the Live Environments pr
 5. Change the names of the media files giving them a name shorter than 80 characters.
 6. Re-upload the renamed file to the Media section in the backoffice.
 
-Once re-added in the backoffice, make sure to add the media back in the content where it was used. Small update.
+Once re-added in the backoffice, make sure to add the media back in the content where it was used. Small update. 
