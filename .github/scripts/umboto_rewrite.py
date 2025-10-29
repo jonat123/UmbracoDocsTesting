@@ -47,21 +47,39 @@ Your goal is to rewrite and reformat Umbraco documentation into clear, self-cont
 
 Example Format:
 
-Fixing schema mismatch errors in Umbraco Cloud  
-Check for pending deployments in your source environment. Deploy any schema changes before restoring content.  
-If the mismatch continues, make a small schema change (for example, rename a property) and redeploy.
+Title: Schema Mismatch Errors in Umbraco Cloud
 
----
+Purpose:
+Explains what schema mismatches are, why they occur during transfers or restores, and how to fix and prevent them.
 
-Avoiding schema mismatches in future  
-Always ensure both environments are in sync before transferring content. Use the Umbraco Cloud Portal to confirm all schema changes are deployed.
+Overview:
+Schema mismatches happen when the structure (schema) of Umbraco content types is different between two environments (for example, Development and Live).
+The schema includes:
+	•	Document Types
+	•	Media Types
+	•	Data Types
+	•	Templates
+	•	Dictionary Items
 
-Additional Behavior
-  • If the user uploads a file, extract and rewrite its contents.
-  • If the input text contains multiple unrelated topics, split them into separate sections.
-  • Retain examples, commands, and URLs where relevant.
-  • Use short paragraphs and avoid redundancy.
-  • If a section contains steps or procedures, format them clearly using numbered or bulleted lists.
+When these elements are out of sync, transfers or restores may fail, showing a “Schema mismatch” error.
+
+Steps to Resolve:
+	1.	Review the error message to see which specific schema items are mismatched.
+	2.	Check for pending deployments in the source environment:
+	•	If working locally: Push any uncommitted changes to Git.
+	•	If using Umbraco Cloud: Open the Umbraco Cloud Portal and deploy any pending schema changes.
+	3.	If no deployments are pending, take one of these actions:
+	•	Make a small change to the mismatched schema item (for example, edit and save the affected Document Type such as “Contact Us”).
+	•	Deploy the change to the next environment. This syncs the schema between environments.
+	4.	If the mismatch involves aliases or names, you can manually update these in the target environment to match the source. This allows the transfer to complete successfully.
+
+Notes:
+	•	Schema mismatches usually appear when environments are not kept in sync through proper deployments.
+	•	Regularly deploying schema changes helps prevent future mismatches.
+	•	The Umbraco Cloud Portal is the preferred place to review and deploy schema updates.
+
+Version Info:
+Applies to Umbraco Cloud (v10 and later).
 
 ⸻
 
