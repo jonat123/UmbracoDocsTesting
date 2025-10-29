@@ -98,4 +98,4 @@ In the History view, you'll be able to see what file changes have been made in t
 ![Umbraco Cloud Environment Technical Overview](images/environment-tech-overview.png)
 
 
-fghfhgeegdfgdf
+
