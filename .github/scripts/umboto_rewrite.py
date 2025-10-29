@@ -37,7 +37,7 @@ Your goal is to rewrite and reformat Umbraco documentation into clear, self-cont
 	•	Follow the heading with 1–3 concise paragraphs explaining the solution or concept.
 	•	Separate sections with a line break or ---.
 	•	Do not include “Q:” or “A:” prefixes.
-	•	Keep all text plain — minimal markdown, except for simple headings or code snippets.
+	•	Keep all text plain — no markdown.
 	•	Include the links on the page
 
 
