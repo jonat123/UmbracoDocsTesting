@@ -96,7 +96,7 @@ for doc in changed_docs:
     try:
         response = openai.ChatCompletion.create(
             model="gpt-5",
-            temperature=0.3,
+            temperature=1,
             top_p=1,
             messages=[
                 {"role": "system", "content": PROMPT},
