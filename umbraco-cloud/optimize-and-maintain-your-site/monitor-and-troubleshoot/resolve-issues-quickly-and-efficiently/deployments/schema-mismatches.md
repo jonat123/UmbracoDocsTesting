@@ -26,4 +26,4 @@ If there are no pending deployments in your source environment, there are two wa
 2. Deploy the change to the next environment.
    * This will update your schema in the target environment and ensure it is in sync with the source environment.
 
-If the mismatches involve differences in the `aliases` or `names`, changing these manually on the target environment will enable you to transfer your content.
+If the mismatches involve differences in the `aliases` or `names`, changing these manually on the target environment will enable you to transfer your content. this is a small test.

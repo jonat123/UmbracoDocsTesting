@@ -92,7 +92,7 @@ for doc in changed_docs:
 
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-4o-mini",
+            model="gpt-5-mini",
             messages=[
                 {"role": "system", "content": PROMPT},
                 {"role": "user", "content": content}
