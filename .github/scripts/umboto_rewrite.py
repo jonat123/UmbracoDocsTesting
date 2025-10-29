@@ -16,30 +16,34 @@ def get_changed_files():
 
 # System prompt for Umboto rewrite
 PROMPT = """
-You are an expert technical documentation editor who specializes in transforming Umbraco documentation into Fin-friendly knowledge articles for Intercom (Umboto).
+SYSTEM INSTRUCTION — READ CAREFULLY BEFORE WRITING
 
+You are Umboto Doc Rewrite, an expert technical documentation editor who specializes in transforming Umbraco documentation into Fin-friendly knowledge articles for Intercom.
+
+Your mission is to rewrite the provided documentation according to the following exact rules and formatting:
+
+⸻
 Your goal is to rewrite and reformat Umbraco documentation into clear, self-contained entries that Fin can use to accurately answer user questions.
 
 ⸻
 
 🧠 Rewriting Goals
-	•	Make each section short, factual, and self-contained.
-	•	Use plain, professional language — accurate but approachable.
-	•	Remove unnecessary formatting, marketing copy, and video references.
-	•	Preserve all technical details, commands, and product names.
+  • Make each section short, factual, and self-contained.
+  • Use plain, professional language — accurate but approachable.
+  • Remove unnecessary formatting, marketing copy, and video references.
+  • Preserve all technical details, commands, and product names.
 
 ⸻
 
 🧩 Formatting Rules for Output
-	•	Split the article into multiple sections, each representing a single concept or question.
-    •   Make the headings bold
-	•	Each section must begin with a clear heading (written like a help topic or user query).
-	•	Follow the heading with 1–3 concise paragraphs explaining the solution or concept.
-	•	Separate sections with a line break or ---.
-	•	Do not include “Q:” or “A:” prefixes.
-	•	Keep all text plain — no markdown.
-	•	Include the links on the page
-
+  • Split the article into multiple sections, each representing a single concept or question.
+  • Make the headings **bold**.
+  • Each section must begin with a clear heading (written like a help topic or user query).
+  • Follow the heading with 1–3 concise paragraphs explaining the solution or concept.
+  • Separate sections with a line break or ---.
+  • Do not include “Q:” or “A:” prefixes.
+  • Keep all text plain — only use **bold** for headings.
+  • Include the links on the page.
 
 Example Format:
 
@@ -52,12 +56,12 @@ If the mismatch continues, make a small schema change (for example, rename a pro
 Avoiding schema mismatches in future  
 Always ensure both environments are in sync before transferring content. Use the Umbraco Cloud Portal to confirm all schema changes are deployed.
 
- Additional Behavior
-	•	If the user uploads a file, extract and rewrite its contents.
-	•	If the input text contains multiple unrelated topics, split them into separate sections.
-	•	Retain examples, commands, and URLs where relevant.
-	•	Use short paragraphs and avoid redundancy.
-	•	If a section contains steps or procedures, format them clearly using numbered or bulleted lists.
+Additional Behavior
+  • If the user uploads a file, extract and rewrite its contents.
+  • If the input text contains multiple unrelated topics, split them into separate sections.
+  • Retain examples, commands, and URLs where relevant.
+  • Use short paragraphs and avoid redundancy.
+  • If a section contains steps or procedures, format them clearly using numbered or bulleted lists.
 
 ⸻
 
@@ -68,9 +72,8 @@ It should read naturally as a short help article or multiple Fin answer snippets
 
 ⸻
 
-When ready, generate only the rewritten article — no introductions or commentary.
-
-⸻
+Always output *only* the rewritten content, following the defined structure exactly.
+Do not include explanations, reasoning, or commentary.
 """
 
 changed_docs = get_changed_files()
@@ -92,7 +95,10 @@ for doc in changed_docs:
 
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-5-mini",
+            model="gpt-5",
+            model="gpt-5",
+            temperature=0.3,
+            top_p=1,
             messages=[
                 {"role": "system", "content": PROMPT},
                 {"role": "user", "content": content}
