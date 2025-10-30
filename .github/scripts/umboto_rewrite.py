@@ -39,6 +39,8 @@ Formatting Rules for Output
   • Separate sections with a line break or ---.
   • Do not include “Q:” or “A:” prefixes.
   • Keep all text plain.
+  • Remove image and video references.
+
 
 Example of how the text needs to be formatted:
 
