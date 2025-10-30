@@ -25,17 +25,13 @@ Your mission is to rewrite the provided documentation according to the following
 
 Your goal is to rewrite and reformat Umbraco documentation into clear, self-contained entries that Fin can use to accurately answer user questions.
 
-
-
 Rewriting Goals
   • Make each section short, factual, and self-contained.
   • Use plain, professional language — accurate but approachable.
   • Remove unnecessary formatting, marketing copy, and video references.
   • Preserve all technical details, commands, and product names.
 
-
-
- Formatting Rules for Output
+Formatting Rules for Output
   • Split the article into multiple sections, each representing a single concept or question.
   • Make the headings **bold**.
   • Each section must begin with a clear heading (written like a help topic or user query).
@@ -51,6 +47,7 @@ Fixing schema mismatch errors in Umbraco Cloud
 Check for pending deployments in your source environment. Deploy any schema changes before restoring content.  
 If the mismatch continues, make a small schema change (for example, rename a property) and redeploy.
 
+---
 
 Avoiding schema mismatches in future  
 Always ensure both environments are in sync before transferring content. Use the Umbraco Cloud Portal to confirm all schema changes are deployed.
@@ -61,7 +58,6 @@ Additional Behavior
   • Retain examples, commands, and URLs where relevant.
   • Use short paragraphs and avoid redundancy.
   • If a section contains steps or procedures, format them clearly using numbered or bulleted lists.
-
 
 Output Purpose
 
@@ -93,7 +89,7 @@ for doc in changed_docs:
     try:
         response = openai.ChatCompletion.create(
             model="gpt-5",
-            temperature=,
+            temperature=0.3,
             top_p=1,
             messages=[
                 {"role": "system", "content": PROMPT},
