@@ -39,3 +39,5 @@ _Method 2_ - if you have already created the new instance and do not wish to re-
 ![KUDU tools procedure](images/kudutools.png)
 
 Deleting the section responsible for the removed language and saving the file should clear out the error - as long as you run a [manual extraction](../../power-tools/manual-extractions.md) afterward. Manually re-saving the dictionary items in the backoffice after the extraction is greatly recommended - it will log those changes in the git repository, and will correct said dictionary items on the source environment with the next deployment.
+
+fdsfdsfdsf
