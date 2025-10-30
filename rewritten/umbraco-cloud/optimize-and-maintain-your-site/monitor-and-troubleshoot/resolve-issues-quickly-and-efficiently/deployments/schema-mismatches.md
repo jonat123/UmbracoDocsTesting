@@ -1,32 +1,41 @@
-**Understanding schema mismatches in Umbraco Cloud**  
-Schema mismatches occur when the schema in your source environment does not match the schema in your target environment during a content transfer or restore. Schema includes Document Types, Media Types, Data Types, Templates, and Dictionary items.  
-The error message will list the specific items that are out of sync, so you can identify what needs updating.
+**Understanding schema mismatches in Umbraco Cloud**
+
+Schema mismatches occur when the structure of your project (the schema) is different between the source and target environments. The schema includes Document Types, Media Types, Data Types, Templates, and Dictionary items.
+
+These mismatches block content transfers and restores until the environments are brought back into sync.
 
 ---
 
-**Fixing schema mismatch errors during transfer or restore**  
-First, check for pending deployments in your source environment. If you are working locally, commit and push any schema changes through Git. If you are transferring between two Umbraco Cloud environments, use the Umbraco Cloud Portal to view and deploy pending changes.  
-If there are no pending deployments, resolve the mismatch by updating the schema in the source environment and deploying it to the next environment:
-- Make a minor change to the mismatched schema item in the source environment (for example, the specific Document Type listed in the error).
-- Deploy the change to the target environment to bring schemas back in sync.
+**How schema mismatch errors appear**
 
-Example error message image: images/schema-mismatch-on-transfer_v10.png
+When a transfer or restore fails, the error message lists the specific schema items that are out of sync. Use this information to identify which Document Type, Data Type, Template, or other item needs attention.
 
 ---
 
-**Resolving alias or name mismatches**  
-If the mismatches are due to differences in aliases or names, align them manually on the target environment. Once the aliases or names match, retry the content transfer or restore.
+**Resolve mismatches by deploying pending changes**
+
+First, check for pending deployments in the source environment. If you are working locally, commit and push any schema changes to Git. For transfers between Umbraco Cloud environments, use the Umbraco Cloud Portal to review and deploy any pending changes from the source to the target.
+
+Once all pending deployments are completed, retry the transfer or restore.
 
 ---
 
-**Avoiding schema mismatches in future**  
-Before transferring or restoring content, ensure both environments have the same schema. Deploy all schema changes from the source environment first.  
-Use the Umbraco Cloud Portal to confirm there are no pending deployments, and always commit and push local schema changes before attempting a transfer.
+**Resolve mismatches when no pending deployments exist**
+
+If no pending deployments are shown, make a small change to the mismatched schema item in the source environment (for example, update the description or a property on the affected Document Type).
+
+Deploy this change to the next environment. This forces the schema to update in the target environment and brings it back in sync.
 
 ---
 
-**Additional resources**  
-Watch the walkthrough: https://www.youtube.com/embed/MLJzV8ASWm4?rel=0  
-Example error message image: images/schema-mismatch-on-transfer_v10.png
+**Fix alias or name mismatches**
 
-test
+If the mismatch involves different aliases or names, update the item manually in the target environment so it matches the source. After aligning the item, retry the content transfer.
+
+---
+
+**Prevent future schema mismatches**
+
+Before transferring content, ensure all schema changes are committed, pushed, and deployed from the source environment. Use the Umbraco Cloud Portal to verify there are no pending schema changes.
+
+Keeping schema changes deployed promptly helps maintain synchronization across environments and prevents transfer or restore failures.
